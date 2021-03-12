@@ -2172,10 +2172,9 @@ Table of Contents
 
    A server might provide larger initial stream flow control limits for
    streams than the remembered values that a client applies when sending
-   0-RTT.  After receiving updated transport parameters, the client
-   updates the flow control limits on all sending streams using the
-   updated values of initial_max_stream_data_bidi_remote and
-   initial_max_stream_data_uni.
+   0-RTT.  Once the handshake completes, the client updates the flow
+   control limits on all sending streams using the updated values of
+   initial_max_stream_data_bidi_remote and initial_max_stream_data_uni.
 
    A server MAY store and recover the previously sent values of the
    max_idle_timeout, max_udp_payload_size, and disable_active_migration
