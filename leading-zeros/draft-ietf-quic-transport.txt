@@ -5,8 +5,8 @@
 QUIC                                                     J. Iyengar, Ed.
 Internet-Draft                                                    Fastly
 Intended status: Standards Track                         M. Thomson, Ed.
-Expires: 19 September 2021                                       Mozilla
-                                                           18 March 2021
+Expires: 24 September 2021                                       Mozilla
+                                                           23 March 2021
 
 
            QUIC: A UDP-Based Multiplexed and Secure Transport
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 September 2021.
+   This Internet-Draft will expire on 24 September 2021.
 
 Copyright Notice
 
@@ -2095,7 +2095,7 @@ Table of Contents
    Endpoints use transport parameters to authenticate the negotiation of
    connection IDs during the handshake; see Section 7.3.
 
-   Application Layer Protocol Negotiation (ALPN; see [ALPN]) allows
+   Application-Layer Protocol Negotiation (ALPN; see [ALPN]) allows
    clients to offer multiple application protocols during connection
    establishment.  The transport parameters that a client includes
    during the handshake apply to all application protocols that the
@@ -2169,6 +2169,12 @@ Table of Contents
    initial_max_data and either initial_max_streams_bidi and
    initial_max_stream_data_bidi_remote, or initial_max_streams_uni and
    initial_max_stream_data_uni.
+
+   A server might provide larger initial stream flow control limits for
+   streams than the remembered values that a client applies when sending
+   0-RTT.  Once the handshake completes, the client updates the flow
+   control limits on all sending streams using the updated values of
+   initial_max_stream_data_bidi_remote and initial_max_stream_data_uni.
 
    A server MAY store and recover the previously sent values of the
    max_idle_timeout, max_udp_payload_size, and disable_active_migration
@@ -8113,20 +8119,20 @@ Table of Contents
    [QUIC-INVARIANTS]
               Thomson, M., "Version-Independent Properties of QUIC",
               Work in Progress, Internet-Draft, draft-ietf-quic-
-              invariants, 18 March 2021,
+              invariants, 23 March 2021,
               <https://datatracker.ietf.org/doc/html/draft-ietf-quic-
               invariants.txt>.
 
    [QUIC-RECOVERY]
               Iyengar, J., Ed. and I. Swett, Ed., "QUIC Loss Detection
               and Congestion Control", Work in Progress, Internet-Draft,
-              draft-ietf-quic-recovery, 18 March 2021,
+              draft-ietf-quic-recovery, 23 March 2021,
               <https://datatracker.ietf.org/doc/html/draft-ietf-quic-
               recovery.txt>.
 
    [QUIC-TLS] Thomson, M., Ed. and S. Turner, Ed., "Using Transport
               Layer Security (TLS) to Secure QUIC", Work in Progress,
-              Internet-Draft, draft-ietf-quic-tls, 18 March 2021,
+              Internet-Draft, draft-ietf-quic-tls, 23 March 2021,
               <https://datatracker.ietf.org/doc/html/draft-ietf-quic-
               tls.txt>.
 
@@ -8396,13 +8402,14 @@ A.2.  Sample Packet Number Encoding Algorithm
              Figure 46: Sample Packet Number Encoding Algorithm
 
    For example, if an endpoint has received an acknowledgment for packet
-   0xabe8bc and is sending a packet with a number of 0xac5c02, there are
-   29,519 (0x734f) outstanding packets.  In order to represent at least
-   twice this range (59,038 packets, or 0xe69e), 16 bits are required.
+   0xabe8b3 and is sending a packet with a number of 0xac5c02, there are
+   29,519 (0x734f) outstanding packet numbers.  In order to represent at
+   least twice this range (59,038 packets, or 0xe69e), 16 bits are
+   required.
 
-   In the same state, sending a packet with a number of 0xace8fe uses
+   In the same state, sending a packet with a number of 0xace8fe needs
    the 24-bit encoding, because at least 18 bits are required to
-   represent twice the range (131,182 packets, or 0x02006e).
+   represent twice the range (131,222 packets, or 0x020096).
 
 A.3.  Sample Packet Number Decoding Algorithm
 

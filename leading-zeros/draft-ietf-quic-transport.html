@@ -847,7 +847,7 @@ address div.right {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Iyengar &amp; Thomson</td>
-<td class="center">Expires 19 September 2021</td>
+<td class="center">Expires 24 September 2021</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -860,12 +860,12 @@ address div.right {
 <dd class="internet-draft">draft-ietf-quic-transport</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-03-18" class="published">18 March 2021</time>
+<time datetime="2021-03-23" class="published">23 March 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2021-09-19">19 September 2021</time></dd>
+<dd class="expires"><time datetime="2021-09-24">24 September 2021</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -929,7 +929,7 @@ code and issues list for this draft can be found at
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 19 September 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 24 September 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -3637,7 +3637,7 @@ parameters extension.  An endpoint SHOULD treat receipt of duplicate transport
 parameters as a connection error of type TRANSPORT_PARAMETER_ERROR.<a href="#section-7.4-7" class="pilcrow">¶</a></p>
 <p id="section-7.4-8">Endpoints use transport parameters to authenticate the negotiation of
 connection IDs during the handshake; see <a href="#cid-auth" class="xref">Section 7.3</a>.<a href="#section-7.4-8" class="pilcrow">¶</a></p>
-<p id="section-7.4-9">Application Layer Protocol Negotiation (ALPN; see <span>[<a href="#ALPN" class="xref">ALPN</a>]</span>) allows
+<p id="section-7.4-9">Application-Layer Protocol Negotiation (ALPN; see <span>[<a href="#ALPN" class="xref">ALPN</a>]</span>) allows
 clients to offer multiple application protocols during connection
 establishment. The transport parameters that a client includes during the
 handshake apply to all application protocols that the client offers. Application
@@ -3705,23 +3705,28 @@ parameters that permit sending of application data SHOULD be set to non-zero
 values for 0-RTT.  This includes initial_max_data and either
 initial_max_streams_bidi and initial_max_stream_data_bidi_remote, or
 initial_max_streams_uni and initial_max_stream_data_uni.<a href="#section-7.4.1-8" class="pilcrow">¶</a></p>
-<p id="section-7.4.1-9">A server MAY store and recover the previously sent values of the
+<p id="section-7.4.1-9">A server might provide larger initial stream flow control limits for streams
+than the remembered values that a client applies when sending 0-RTT.  Once
+the handshake completes, the client updates the flow control
+limits on all sending streams using the updated values of
+initial_max_stream_data_bidi_remote and initial_max_stream_data_uni.<a href="#section-7.4.1-9" class="pilcrow">¶</a></p>
+<p id="section-7.4.1-10">A server MAY store and recover the previously sent values of the
 max_idle_timeout, max_udp_payload_size, and disable_active_migration parameters
 and reject 0-RTT if it selects smaller values. Lowering the values of these
 parameters while also accepting 0-RTT data could degrade the performance of the
 connection. Specifically, lowering the max_udp_payload_size could result in
 dropped packets leading to worse performance compared to rejecting 0-RTT data
-outright.<a href="#section-7.4.1-9" class="pilcrow">¶</a></p>
-<p id="section-7.4.1-10">A server MUST reject 0-RTT data if the restored values for transport
-parameters cannot be supported.<a href="#section-7.4.1-10" class="pilcrow">¶</a></p>
-<p id="section-7.4.1-11">When sending frames in 0-RTT packets, a client MUST only use remembered
+outright.<a href="#section-7.4.1-10" class="pilcrow">¶</a></p>
+<p id="section-7.4.1-11">A server MUST reject 0-RTT data if the restored values for transport
+parameters cannot be supported.<a href="#section-7.4.1-11" class="pilcrow">¶</a></p>
+<p id="section-7.4.1-12">When sending frames in 0-RTT packets, a client MUST only use remembered
 transport parameters; importantly, it MUST NOT use updated values that it learns
 from the server's updated transport parameters or from frames received in 1-RTT
 packets.  Updated values of transport parameters from the handshake apply only
 to 1-RTT packets.  For instance, flow control limits from remembered transport
 parameters apply to all 0-RTT packets even if those values are increased by the
 handshake or by frames sent in 1-RTT packets.  A server MAY treat use of updated
-transport parameters in 0-RTT as a connection error of type PROTOCOL_VIOLATION.<a href="#section-7.4.1-11" class="pilcrow">¶</a></p>
+transport parameters in 0-RTT as a connection error of type PROTOCOL_VIOLATION.<a href="#section-7.4.1-12" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="new-transport-parameters">
@@ -10547,15 +10552,15 @@ specification reference is provided.<a href="#section-22.5-4.4.1" class="pilcrow
 <dd class="break"></dd>
 <dt id="QUIC-INVARIANTS">[QUIC-INVARIANTS]</dt>
         <dd>
-<span class="refAuthor">Thomson, M.</span>, <span class="refTitle">"Version-Independent Properties of QUIC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-invariants</span>, <time datetime="2021-03-18" class="refDate">18 March 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-invariants.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-invariants.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Thomson, M.</span>, <span class="refTitle">"Version-Independent Properties of QUIC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-invariants</span>, <time datetime="2021-03-23" class="refDate">23 March 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-invariants.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-invariants.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="QUIC-RECOVERY">[QUIC-RECOVERY]</dt>
         <dd>
-<span class="refAuthor">Iyengar, J., Ed.</span> and <span class="refAuthor">I. Swett, Ed.</span>, <span class="refTitle">"QUIC Loss Detection and Congestion Control"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-recovery</span>, <time datetime="2021-03-18" class="refDate">18 March 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-recovery.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-recovery.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Iyengar, J., Ed.</span> and <span class="refAuthor">I. Swett, Ed.</span>, <span class="refTitle">"QUIC Loss Detection and Congestion Control"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-recovery</span>, <time datetime="2021-03-23" class="refDate">23 March 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-recovery.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-recovery.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="QUIC-TLS">[QUIC-TLS]</dt>
         <dd>
-<span class="refAuthor">Thomson, M., Ed.</span> and <span class="refAuthor">S. Turner, Ed.</span>, <span class="refTitle">"Using Transport Layer Security (TLS) to Secure QUIC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-tls</span>, <time datetime="2021-03-18" class="refDate">18 March 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-tls.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-tls.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Thomson, M., Ed.</span> and <span class="refAuthor">S. Turner, Ed.</span>, <span class="refTitle">"Using Transport Layer Security (TLS) to Secure QUIC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-tls</span>, <time datetime="2021-03-23" class="refDate">23 March 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-tls.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-tls.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC1191">[RFC1191]</dt>
         <dd>
@@ -10810,13 +10815,13 @@ EncodePacketNumber(full_pn, largest_acked):
 <a href="#name-sample-packet-number-encodin" class="selfRef">Sample Packet Number Encoding Algorithm</a>
           </figcaption></figure>
 </div>
-<p id="section-a.2-5">For example, if an endpoint has received an acknowledgment for packet 0xabe8bc
+<p id="section-a.2-5">For example, if an endpoint has received an acknowledgment for packet 0xabe8b3
 and is sending a packet with a number of 0xac5c02, there are 29,519 (0x734f)
-outstanding packets.  In order to represent at least twice this range (59,038
-packets, or 0xe69e), 16 bits are required.<a href="#section-a.2-5" class="pilcrow">¶</a></p>
-<p id="section-a.2-6">In the same state, sending a packet with a number of 0xace8fe uses the 24-bit
+outstanding packet numbers.  In order to represent at least twice this range
+(59,038 packets, or 0xe69e), 16 bits are required.<a href="#section-a.2-5" class="pilcrow">¶</a></p>
+<p id="section-a.2-6">In the same state, sending a packet with a number of 0xace8fe needs the 24-bit
 encoding, because at least 18 bits are required to represent twice the range
-(131,182 packets, or 0x02006e).<a href="#section-a.2-6" class="pilcrow">¶</a></p>
+(131,222 packets, or 0x020096).<a href="#section-a.2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sample-packet-number-decoding">
