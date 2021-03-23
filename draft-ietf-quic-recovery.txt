@@ -518,7 +518,9 @@ Table of Contents
    RTT samples for the network path are recorded in latest_rtt; see
    Section 5.1.  On the first RTT sample after initialization, the
    estimator is reset using that sample.  This ensures that the
-   estimator retains no history of past samples.
+   estimator retains no history of past samples.  Packets sent on other
+   paths do not contribute RTT samples to the current path, as described
+   in Section 9.4 of [QUIC-TRANSPORT].
 
    On the first RTT sample after initialization, smoothed_rtt and rttvar
    are set as follows:
@@ -919,6 +921,10 @@ Table of Contents
    information to adjust the congestion controller or the rate of ACK-
    only packets being sent, but this document does not describe a
    mechanism for doing so.
+
+   The congestion controller is per path, so packets sent on other paths
+   do not alter the current path's congestion controller, as described
+   in Section 9.4 of [QUIC-TRANSPORT].
 
    The algorithm in this document specifies and uses the controller's
    congestion window in bytes.
