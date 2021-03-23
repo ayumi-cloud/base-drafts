@@ -2095,7 +2095,7 @@ Table of Contents
    Endpoints use transport parameters to authenticate the negotiation of
    connection IDs during the handshake; see Section 7.3.
 
-   Application Layer Protocol Negotiation (ALPN; see [ALPN]) allows
+   Application-Layer Protocol Negotiation (ALPN; see [ALPN]) allows
    clients to offer multiple application protocols during connection
    establishment.  The transport parameters that a client includes
    during the handshake apply to all application protocols that the
