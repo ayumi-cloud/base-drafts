@@ -1225,14 +1225,14 @@ Table of Contents
    The following error codes are defined for HTTP/3 to indicate failures
    of QPACK that prevent the stream or connection from continuing:
 
-   QPACK_DECOMPRESSION_FAILED (0x200):  The decoder failed to interpret
+   QPACK_DECOMPRESSION_FAILED (0x0200):  The decoder failed to interpret
       an encoded field section and is not able to continue decoding that
       field section.
 
-   QPACK_ENCODER_STREAM_ERROR (0x201):  The decoder failed to interpret
+   QPACK_ENCODER_STREAM_ERROR (0x0201):  The decoder failed to interpret
       an encoder instruction received on the encoder stream.
 
-   QPACK_DECODER_STREAM_ERROR (0x202):  The encoder failed to interpret
+   QPACK_DECODER_STREAM_ERROR (0x0202):  The encoder failed to interpret
       a decoder instruction received on the decoder stream.
 
 7.  Security Considerations
@@ -1536,24 +1536,23 @@ Table of Contents
    following table are registered in the "HTTP/3 Error Code" registry
    established in [HTTP3].
 
-   +============================+=======+=============+===============+
-   | Name                       | Code  | Description | Specification |
-   +============================+=======+=============+===============+
-   | QPACK_DECOMPRESSION_FAILED | 0x200 | Decoding of | Section 6     |
-   |                            |       | a field     |               |
-   |                            |       | section     |               |
-   |                            |       | failed      |               |
-   +----------------------------+-------+-------------+---------------+
-   | QPACK_ENCODER_STREAM_ERROR | 0x201 | Error on    | Section 6     |
-   |                            |       | the encoder |               |
-   |                            |       | stream      |               |
-   +----------------------------+-------+-------------+---------------+
-   | QPACK_DECODER_STREAM_ERROR | 0x202 | Error on    | Section 6     |
-   |                            |       | the decoder |               |
-   |                            |       | stream      |               |
-   +----------------------------+-------+-------------+---------------+
+   +============================+========+=============+===============+
+   | Name                       | Code   |Description  | Specification |
+   +============================+========+=============+===============+
+   | QPACK_DECOMPRESSION_FAILED | 0x0200 |Decoding of a| Section 6     |
+   |                            |        |field section|               |
+   |                            |        |failed       |               |
+   +----------------------------+--------+-------------+---------------+
+   | QPACK_ENCODER_STREAM_ERROR | 0x0201 |Error on the | Section 6     |
+   |                            |        |encoder      |               |
+   |                            |        |stream       |               |
+   +----------------------------+--------+-------------+---------------+
+   | QPACK_DECODER_STREAM_ERROR | 0x0202 |Error on the | Section 6     |
+   |                            |        |decoder      |               |
+   |                            |        |stream       |               |
+   +----------------------------+--------+-------------+---------------+
 
-                                 Table 3
+                                  Table 3
 
 9.  References
 

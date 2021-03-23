@@ -8409,7 +8409,7 @@ A.2.  Sample Packet Number Encoding Algorithm
 
    In the same state, sending a packet with a number of 0xace8fe needs
    the 24-bit encoding, because at least 18 bits are required to
-   represent twice the range (131,222 packets, or 0x20096).
+   represent twice the range (131,222 packets, or 0x020096).
 
 A.3.  Sample Packet Number Decoding Algorithm
 
