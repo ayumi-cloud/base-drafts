@@ -5,10 +5,10 @@
 QUIC                                                           C. Krasic
 Internet-Draft                                                   Netflix
 Intended status: Standards Track                               M. Bishop
-Expires: 24 September 2021                           Akamai Technologies
+Expires: 25 September 2021                           Akamai Technologies
                                                         A. Frindell, Ed.
                                                                 Facebook
-                                                           23 March 2021
+                                                           24 March 2021
 
 
                   QPACK: Header Compression for HTTP/3
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 September 2021.
+   This Internet-Draft will expire on 25 September 2021.
 
 Copyright Notice
 
@@ -1213,11 +1213,11 @@ Table of Contents
 
    QPACK defines two settings for the HTTP/3 SETTINGS frame:
 
-   SETTINGS_QPACK_MAX_TABLE_CAPACITY (0x1):  The default value is zero.
+   SETTINGS_QPACK_MAX_TABLE_CAPACITY (0x01):  The default value is zero.
       See Section 3.2 for usage.  This is the equivalent of the
       SETTINGS_HEADER_TABLE_SIZE from HTTP/2.
 
-   SETTINGS_QPACK_BLOCKED_STREAMS (0x7):  The default value is zero.
+   SETTINGS_QPACK_BLOCKED_STREAMS (0x07):  The default value is zero.
       See Section 2.1.2.
 
 6.  Error Handling
@@ -1499,9 +1499,9 @@ Table of Contents
        +==========================+======+===============+=========+
        | Setting Name             | Code | Specification | Default |
        +==========================+======+===============+=========+
-       | QPACK_MAX_TABLE_CAPACITY | 0x1  | Section 5     | 0       |
+       | QPACK_MAX_TABLE_CAPACITY | 0x01 | Section 5     | 0       |
        +--------------------------+------+---------------+---------+
-       | QPACK_BLOCKED_STREAMS    | 0x7  | Section 5     | 0       |
+       | QPACK_BLOCKED_STREAMS    | 0x07 | Section 5     | 0       |
        +--------------------------+------+---------------+---------+
 
                                   Table 1
@@ -1555,14 +1555,14 @@ Table of Contents
 
    [HTTP3]    Bishop, M., Ed., "Hypertext Transfer Protocol Version 3
               (HTTP/3)", Work in Progress, Internet-Draft, draft-ietf-
-              quic-http, 23 March 2021,
+              quic-http, 24 March 2021,
               <https://datatracker.ietf.org/doc/html/draft-ietf-quic-
               http.txt>.
 
    [QUIC-TRANSPORT]
               Iyengar, J., Ed. and M. Thomson, Ed., "QUIC: A UDP-Based
               Multiplexed and Secure Transport", Work in Progress,
-              Internet-Draft, draft-ietf-quic-transport, 23 March 2021,
+              Internet-Draft, draft-ietf-quic-transport, 24 March 2021,
               <https://datatracker.ietf.org/doc/html/draft-ietf-quic-
               transport.txt>.
 
