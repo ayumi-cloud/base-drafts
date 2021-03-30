@@ -4195,10 +4195,10 @@ Table of Contents
    be acknowledged, an endpoint MAY wait until an ack-eliciting packet
    has been received to include an ACK frame with outgoing frames.
 
-   A receiver that is only sending non-ack-eliciting packets might
+   An endpoint that is only sending non-ack-eliciting packets might
    choose to occasionally add an ack-eliciting frame to those packets to
-   ensure that it receives an acknowledgment; see Section 13.2.4.  A
-   receiver MUST NOT send an ack-eliciting frame in all packets that
+   ensure that it receives an acknowledgment; see Section 13.2.4.  An
+   endpoint MUST NOT send an ack-eliciting frame in all packets that
    would otherwise be non-ack-eliciting, to avoid an infinite feedback
    loop of acknowledgments.
 
