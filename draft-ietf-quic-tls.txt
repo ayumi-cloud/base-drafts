@@ -1891,7 +1891,7 @@ Table of Contents
 
 6.7.  Key Update Error Code
 
-   The KEY_UPDATE_ERROR error code (0xe) is used to signal errors
+   The KEY_UPDATE_ERROR error code (0x0e) is used to signal errors
    related to key updates.
 
 7.  Security of Initial Messages
